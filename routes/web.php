@@ -20,7 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home.create');
-Route::post('/home', [App\Http\Controllers\HomeController::class, 'store'])->name('home.store');
+
+Route::post('/workspace/store', [App\Http\Controllers\WorkspaceController::class, 'store'])->name('workspace.store');
+
+Route::get('/task/show', [App\Http\Controllers\TaskController::class, 'show'])->name('task.show');
+Route::post('/task/store', [App\Http\Controllers\TaskController::class, 'store'])->name('task.store');
 
 
