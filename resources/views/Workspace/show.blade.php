@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Status</label>
-                                            <input type="status" class="form-control" id="exampleFormControlInput1" name="status">
+                                            <input type="status" class="form-control" id="exampleFormControlInput1" value="In Progress"  name="status" readonly>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -54,8 +54,21 @@
                           </tr>
                         </thead>
                         <tbody>
-
+                            @foreach($tasks as $key => $task)
+                            <tr>
+                                <th scope="row">{{ $key +1}}</th>
+                                <td>{{ $task->name }}</td>
+                                <td>{{ $task->datetime }}</td>
+                                <td>{{ $task->status }}</td>
+                                <td>
+                                    <a href="{{route ('workspace.show', $workspace)}}" type="button" name="show" class="btn btn-secondary">Show</a>
+                                    <a href="{{route ('workspace.edit', $workspace)}}" type="button" class="btn btn-warning">Edit</a>
+                                    <a href="{{route ('workspace.delete', $workspace)}}" type="button" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
+                        <a href="{{route ('home')}}" type="button" class="btn btn-danger">Back</a>
                     </table>
                 </div>
             </div>
