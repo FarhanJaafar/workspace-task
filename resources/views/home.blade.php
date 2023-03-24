@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Welcome!') }}</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Status</label>
-                                            <input type="status" class="form-control" id="exampleFormControlInput1" name="status">
+                                            <input type="status" class="form-control" id="exampleFormControlInput1" value="In Progress"  name="status" readonly>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -73,9 +73,9 @@
                                 <td>{{ $workspace->datetime }}</td>
                                 <td>{{ $workspace->status }}</td>
                                 <td>
-                                    <a href="{{route ('task.show', $workspace)}}" type="button" name="show" class="btn btn-secondary">Show</a>
-                                    <a href="" type="submit" name="edit" class="btn btn-warning">Edit</a>
-                                    <a href="" type="button" class="btn btn-danger">Delete</a>
+                                    <a href="{{route ('workspace.show', $workspace)}}" type="button" name="show" class="btn btn-secondary">Show</a>
+                                    <a href="{{route ('workspace.edit', $workspace)}}" type="button" class="btn btn-warning">Edit</a>
+                                    <a href="{{route ('workspace.delete', $workspace)}}" type="button" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
