@@ -22,8 +22,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/workspace/store', [App\Http\Controllers\WorkspaceController::class, 'store'])->name('workspace.store');
+Route::get('/workspace/show/{workspace}', [App\Http\Controllers\WorkspaceController::class, 'show'])->name('workspace.show');
+Route::get('/workspace/delete/{workspace}', [App\Http\Controllers\WorkspaceController::class, 'delete'])->name('workspace.delete');
+Route::get('/workspace/edit/{workspace->id}', [App\Http\Controllers\WorkspaceController::class, 'edit'])->name('workspace.edit');
+Route::post('/workspace/update/{workspace->id}', [App\Http\Controllers\WorkspaceController::class, 'update'])->name('workspace.update');
 
-Route::get('/task/show', [App\Http\Controllers\TaskController::class, 'show'])->name('task.show');
-Route::post('/task/store', [App\Http\Controllers\TaskController::class, 'store'])->name('task.store');
+
+//Route::get('/task/create', [App\Http\Controllers\TaskController::class, 'create'])->name('task.create');
+Route::post('/task/store/{workspace}', [App\Http\Controllers\TaskController::class, 'store'])->name('task.store');
 
 
