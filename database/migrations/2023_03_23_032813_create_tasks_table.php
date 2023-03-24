@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('workspace_id')->constrained('workspaces');
+            $table->unsignedBigInteger('workspace_id');
+            $table->foreign('workspace_id')->references('id')->on('workspaces');
             $table->string('name');
             $table->datetime('datetime');
-            $table->string('status');
+            $table->string('status')->default('InProgress');
             $table->timestamps();
         });
     }
