@@ -19,6 +19,6 @@ class Task extends Model
 
     public function workspace()
     {
-        return $this->hasOne(Workspace::class);
+        return $this->belongsTo(Workspace::class, 'workspace_id');
     }
 }
