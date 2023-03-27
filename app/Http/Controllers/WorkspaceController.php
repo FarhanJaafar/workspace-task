@@ -22,6 +22,7 @@ class WorkspaceController extends Controller
 
     public function delete(Workspace $workspace)
     {
+        $workspace->task()->delete();
         $workspace->delete();
 
         return to_route('home');
@@ -35,14 +36,14 @@ class WorkspaceController extends Controller
 
     public function edit(Workspace $workspace)
     {
-        $workspace=Workspace::all();
+
         return view('workspace.edit', compact('workspace'));
     }
 
     public function update(Request $request, Workspace $workspace)
     {
         $workspace->update([
-            'user_id' =>$workspace->user_id,
+            'user_id' =>auth()->user()->id,
             'name' =>$request->name,
             'datetime'=>$request->datetime,
             'status'=>$request->status
