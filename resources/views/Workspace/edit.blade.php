@@ -11,7 +11,7 @@
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Task Name</label>
+                                <label for="exampleFormControlInput1" class="form-label">Workspace Name</label>
                                 <input type="name" class="form-control" id="exampleFormControlInput1" name="name" placeholder="{{ $workspace->name }}">
                             </div>
                             <div class="mb-3">
