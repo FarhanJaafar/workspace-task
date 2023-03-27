@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Edit Workspace Information</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route ('workspace.edit', $workspace)}}">
+                    <form method="POST" action="{{route ('workspace.update', $workspace)}}">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
@@ -20,18 +20,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Status</label>
-                                <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Status
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">Action</a></li>
-                                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                  </div>
+                                <select class="form-select" aria-label="Default select example" name="status">
+                                    <option type="status" value="In Progress" >In Progress</option>
+                                    <option type="status" value="Done" >Done</option>
+                                  </select>
                             </div>
+
                         </div>
                         <a href="{{route ('home')}}" type="button" class="btn btn-primary">Back</a>
                         <button type="submit" class="btn btn-primary">Update</button>
