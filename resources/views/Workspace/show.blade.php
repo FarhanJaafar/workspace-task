@@ -61,7 +61,7 @@
                                 <td>{{ $task->datetime }}</td>
                                 <td>{{ $task->status }}</td>
                                 <td>
-                                    <a href="" type="button" class="btn btn-warning">Edit</a>
+                                    <a href="{{route ('task.edit')}}" type="button" class="btn btn-warning">Edit</a>
                                     <a href="{{route ('task.delete', [$workspace, $task] )}}" type="button" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
