@@ -21,7 +21,7 @@ class WorkspacePolicy
      */
     public function view(User $user, Workspace $workspace): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 
     /**
