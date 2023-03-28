@@ -27,6 +27,7 @@
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
+
                                 <form method="POST" action="{{route ('workspace.store')}}">
                                     @csrf
                                     <div class="modal-header">
@@ -34,6 +35,15 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
+                                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Workspace Name</label>
                                             <input type="name" class="form-control" id="exampleFormControlInput1" name="name">
@@ -80,7 +90,6 @@
                                 </td>
                                 @else
                                 <td>
-                                    <a href="{{route ('workspace.show', $workspace)}}" type="button" name="show" class="btn btn-secondary">Show</a>
                                     <a href="{{route ('workspace.delete', $workspace)}}" type="button" class="btn btn-danger">Delete</a>
                                 </td>
                                 @endif
