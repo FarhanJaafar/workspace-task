@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Workspace;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddWorkspaceRequest;
 
 class WorkspaceController extends Controller
 {
-    public function store(Request $request)
+    public function store(AddWorkspaceRequest $request)
     {
         Workspace::create([
             'user_id' =>auth()->user()->id,
@@ -50,5 +51,6 @@ class WorkspaceController extends Controller
         ]);
         return to_route('home');
     }
+
 
 }
