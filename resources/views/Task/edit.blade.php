@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Edit Task Information</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route ('task.update', $task)}}">
+                    <form method="POST" action="{{route ('task.update',[$workspace, $task] )}}">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
@@ -27,7 +27,7 @@
                             </div>
 
                         </div>
-                        <a href="{{route ('workspace.show')}}" type="button" class="btn btn-primary">Back</a>
+                        <a href="{{route ('workspace.show', $workspace)}}" type="button" class="btn btn-primary">Back</a>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>
