@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Workspace;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddWorkspaceRequest;
 
@@ -14,7 +15,8 @@ class WorkspaceController extends Controller
             'user_id' =>auth()->user()->id,
             'name' =>$request->name,
             'datetime'=>$request->datetime,
-            'status'=>$request->status
+            'status'=>$request->status,
+            'uuid'=>Str::uuid()
         ]);
 
 
