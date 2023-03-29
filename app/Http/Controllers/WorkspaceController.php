@@ -16,7 +16,6 @@ class WorkspaceController extends Controller
             'name' =>$request->name,
             'datetime'=>$request->datetime,
             'status'=>$request->status,
-            'uuid'=>Str::uuid()
         ]);
 
 
@@ -25,6 +24,7 @@ class WorkspaceController extends Controller
 
     public function delete(Workspace $workspace)
     {
+        $this->authorize('delete', $workspace);
         $workspace->task()->delete();
         $workspace->delete();
 
@@ -40,12 +40,13 @@ class WorkspaceController extends Controller
 
     public function edit(Workspace $workspace)
     {
-
+        $this->authorize('update', $workspace);
         return view('workspace.edit', compact('workspace'));
     }
 
     public function update(Request $request, Workspace $workspace)
     {
+        // $this->authorize('update', $workspace);
         $workspace->update([
             'user_id' =>auth()->user()->id,
             'name' =>$request->name,
