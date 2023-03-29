@@ -13,7 +13,7 @@ class WorkspacePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 
     /**
@@ -29,7 +29,7 @@ class WorkspacePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 
     /**
@@ -37,7 +37,7 @@ class WorkspacePolicy
      */
     public function update(User $user, Workspace $workspace): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 
     /**
@@ -45,7 +45,7 @@ class WorkspacePolicy
      */
     public function delete(User $user, Workspace $workspace): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 
     /**
@@ -53,7 +53,7 @@ class WorkspacePolicy
      */
     public function restore(User $user, Workspace $workspace): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 
     /**
@@ -61,6 +61,6 @@ class WorkspacePolicy
      */
     public function forceDelete(User $user, Workspace $workspace): bool
     {
-        //
+        return $user->id === $workspace->user_id;
     }
 }
