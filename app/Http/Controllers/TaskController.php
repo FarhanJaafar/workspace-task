@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\Workspace;
+use App\Mail\TaskDoneMail;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
 {
@@ -45,8 +48,8 @@ class TaskController extends Controller
             'status'=>$request->status
         ]);
 
+        Mail::to($workspace->user)->send(new TaskDoneMail($task));
+
         return to_route('workspace.show', compact('workspace', 'task'));
     }
-
-
 }
