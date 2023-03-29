@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Workspace;
 use Illuminate\Auth\Access\Response;
 
 class TaskPolicy
@@ -11,56 +12,56 @@ class TaskPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(Workspace $workspace, Task $task): bool
+    public function viewAny(Workspace $workspace): bool
     {
         return $workspace->id === $task->workspace_id;
     }
 
     /**
+     * Determine whether the user can view the model.
+     */
+    public function view(User $user, Task $task): bool
+    {
+        return $user->workspaces->id === $task->workspace_id;
+    }
+
+    /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(Workspace $workspace): bool
     {
-        //
+        return $workspace->id === $task->workspace_id;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Task $task): bool
+    public function update(Workspace $workspace, Task $task): bool
     {
-        //
+        return $workspaces->id === $task->workspace_id;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Task $task): bool
+    public function delete(Workspace $workspace, Task $task): bool
     {
-        //
+        return $workspace->id === $task->workspace_id;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Task $task): bool
+    public function restore(Workspace $workspace, Task $task): bool
     {
-        //
+        return $workspace->id === $task->workspace_id;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Task $task): bool
+    public function forceDelete(Workspace $workspace, Task $task): bool
     {
-        //
+        return $workspace->id === $task->workspace_id;
     }
 }
