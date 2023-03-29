@@ -26,19 +26,21 @@ class TaskController extends Controller
 
     public function delete(Workspace $workspace, Task $task)
     {
+        $this->authorize('delete', $task);
         $task->delete();
         return to_route('workspace.show', compact('workspace'));
     }
 
     public function edit(Workspace $workspace, Task $task)
     {
+        $this->authorize('edit', $task);
         return view('task.edit', compact('workspace', 'task'));
     }
 
     public function update(Request $request, Workspace $workspace, Task $task)
     {
+        $this->authorize('update', $task);
         $task->update([
-            // 'user_id' =>auth()->user()->id,
             'name' =>$request->name,
             'datetime'=>$request->datetime,
             'status'=>$request->status
