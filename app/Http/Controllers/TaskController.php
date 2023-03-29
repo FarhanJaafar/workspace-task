@@ -33,13 +33,12 @@ class TaskController extends Controller
 
     public function edit(Workspace $workspace, Task $task)
     {
-        $this->authorize('edit', $task);
+        $this->authorize('update', $workspace, $task);
         return view('task.edit', compact('workspace', 'task'));
     }
 
     public function update(Request $request, Workspace $workspace, Task $task)
     {
-        $this->authorize('update', $task);
         $task->update([
             'name' =>$request->name,
             'datetime'=>$request->datetime,
