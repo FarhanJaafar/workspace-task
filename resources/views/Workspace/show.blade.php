@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Status</label>
-                                            <input type="status" class="form-control" id="exampleFormControlInput1" value="In Progress"  name="status" readonly>
+                                            <input type="status" class="form-control" id="exampleFormControlInput1" value="InProgress"  name="status" readonly>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -60,7 +60,7 @@
                                 <td>{{ $task->name }}</td>
                                 <td>{{ $task->datetime }}</td>
                                 <td>{{ $task->status }}</td>
-                                @if ($workspace->status == "In Progress")
+                                @if ($task->status == "InProgress")
                                 <td>
                                     <a href="{{route ('task.edit',[$workspace, $task])}}" type="button" class="btn btn-warning">Edit</a>
                                     <a href="{{route ('task.delete', [$workspace, $task] )}}" type="button" class="btn btn-danger">Delete</a>
