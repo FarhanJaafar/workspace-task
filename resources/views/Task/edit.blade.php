@@ -21,7 +21,7 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Status</label>
                                 <select class="form-select" aria-label="Default select example" name="status">
-                                    <option type="status" value="In Progress" >In Progress</option>
+                                    <option type="status" value="InProgress" >In Progress</option>
                                     <option type="status" value="Done" >Done</option>
                                   </select>
                             </div>
