@@ -38,7 +38,7 @@ class TaskPolicy
      */
     public function update(Workspace $workspace, Task $task): bool
     {
-        return $workspaces->id === $task->workspace_id;
+        return $workspace->id === $task->workspace_id;
     }
 
     /**
