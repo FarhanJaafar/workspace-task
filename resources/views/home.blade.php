@@ -28,7 +28,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
 
-                                <form method="POST" action="{{route ('workspace.store')}}">
+                                <form method="POST" action="{{route ('workspace.store')}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Fill Workspace Information</h1>
@@ -56,6 +56,10 @@
                                             <label for="exampleFormControlInput1" class="form-label">Status</label>
                                             <input type="status" class="form-control" id="exampleFormControlInput1" value="InProgress"  name="status" readonly>
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput1" class="form-label">Attachment</label>
+                                            <input type="file" class="form-control" id="exampleFormControlInput1" name="attachment" readonly>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
@@ -72,6 +76,7 @@
                             <th scope="col">Workspace Name</th>
                             <th scope="col">Due Date</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Attachment</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -82,6 +87,9 @@
                                 <td>{{ $workspace->name }}</td>
                                 <td>{{ $workspace->datetime }}</td>
                                 <td>{{ $workspace->status }}</td>
+                                <td>
+                                    <a href="{{ asset('storage/workspace/'.$workspace->attachment) }}" target="_blank">{{ $workspace->attachment }}</a>
+                                </td>
                                 @if ($workspace->status == "InProgress")
                                 <td>
                                 <a href="{{route ('workspace.show', $workspace)}}" type="button" name="show" class="btn btn-secondary">Show</a>
