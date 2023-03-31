@@ -14,7 +14,8 @@ class Task extends Model
         'workspace_id',
         'name',
         'datetime',
-        'status'
+        'status',
+        'uuid',
     ];
 
     public function workspace()
