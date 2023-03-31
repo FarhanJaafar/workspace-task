@@ -29,5 +29,5 @@ Route::post('/workspace/update/{workspace}', [App\Http\Controllers\WorkspaceCont
 
 Route::post('/task/store/{workspace}', [App\Http\Controllers\TaskController::class, 'store'])->name('task.store');
 Route::get('/task/delete/{workspace}/{task}', [App\Http\Controllers\TaskController::class, 'delete'])->name('task.delete');
-Route::get('/task/edit/{workspace:uuid}/{task}', [App\Http\Controllers\TaskController::class, 'edit'])->name('task.edit');
-Route::post('/task/update/{workspace}/{task}', [App\Http\Controllers\TaskController::class, 'update'])->name('task.update');
+Route::get('/task/edit/{workspace:uuid}/{task:uuid}', [App\Http\Controllers\TaskController::class, 'edit'])->name('task.edit');
+Route::post('/task/update/{workspace:uuid}/{task:uuid}', [App\Http\Controllers\TaskController::class, 'update'])->name('task.update');
