@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('workspace_id');
             $table->foreign('workspace_id')->references('id')->on('workspaces');
             $table->string('name');
+            $table->string('uuid');
             $table->datetime('datetime');
             $table->string('status')->default('InProgress');
             $table->timestamps();
