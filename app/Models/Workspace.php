@@ -16,6 +16,7 @@ class Workspace extends Model
         'datetime',
         'status',
         'uuid',
+        'attachment',
     ];
 
     public function user()
@@ -24,6 +25,10 @@ class Workspace extends Model
     }
 
     public function task()
+    {
+        return $this->hasMany(Task::class);
+    }
+    public function tasks()
     {
         return $this->hasMany(Task::class);
     }
