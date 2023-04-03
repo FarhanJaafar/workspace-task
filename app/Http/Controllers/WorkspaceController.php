@@ -55,7 +55,6 @@ class WorkspaceController extends Controller
 
     public function update(Request $request, Workspace $workspace)
     {
-        // $this->authorize('update', $workspace);
         $workspace->update([
             'user_id' =>auth()->user()->id,
             'name' =>$request->name,
@@ -64,6 +63,4 @@ class WorkspaceController extends Controller
         ]);
         return to_route('home');
     }
-
-
 }
